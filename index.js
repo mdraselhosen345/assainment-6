@@ -1,33 +1,45 @@
-//mango tree---------- button
+
+  const mangoBtn = document.getElementById("mango-btn-tree");
+  const treeBtn = document.getElementById("tree-btn");
+  const flowerBtn = document.getElementById("flower-btn");
+  const allBtn = document.getElementById("all-btn");
+
+  const mangoCards = document.querySelectorAll(".card");
+  const treeCards = document.querySelectorAll(".cards");
+  const flowerCards = document.querySelectorAll(".carded");
 
 
-document.getElementById("mango-btn-tree").addEventListener("click", function() {
-  var text = document.getElementById("card-mango-tree");
-  
-  if (text.style.display === "none") {
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
+  function hideAllCards() {
+    mangoCards.forEach(card => card.classList.add("hidden"));
+    treeCards.forEach(card => card.classList.add("hidden"));
+    flowerCards.forEach(card => card.classList.add("hidden"));
   }
-});
+
+  allBtn.addEventListener("click", () => {
+    mangoCards.forEach(card => card.classList.remove("hidden"));
+    treeCards.forEach(card => card.classList.remove("hidden"));
+    flowerCards.forEach(card => card.classList.remove("hidden"));
+  });
 
 
-document.getElementById("tree-btn").addEventListener("click", function() {
-  var text = document.getElementById("card-tree");
-  
-  if (text.style.display === "none") {
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
-});
+  mangoBtn.addEventListener("click", () => {
+    hideAllCards();
+    mangoCards.forEach(card => card.classList.remove("hidden"));
+  });
 
-document.getElementById("tree-btn-tameto").addEventListener("click", function() {
-  var text = document.getElementById("card-tometo-tree");
-  
-  if (text.style.display === "none") {
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
-});
+  treeBtn.addEventListener("click", () => {
+    hideAllCards();
+    treeCards.forEach(card => card.classList.remove("hidden"));
+  });
+
+  flowerBtn.addEventListener("click", () => {
+    hideAllCards();
+    flowerCards.forEach(card => card.classList.remove("hidden"));
+  });
+  window.addEventListener("DOMContentLoaded", () => {
+    mangoCards.forEach(card => card.classList.remove("hidden"));
+    treeCards.forEach(card => card.classList.remove("hidden"));
+    flowerCards.forEach(card => card.classList.remove("hidden"));
+  });
+
+//---------------------------------------------------------------------

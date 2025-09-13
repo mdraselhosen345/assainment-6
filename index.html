@@ -6,6 +6,8 @@
     <!-- daisy Ui -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Assainment 6</title>
 </head>
 <body>
@@ -58,28 +60,28 @@
                <!-- Categories left Section -->
             <div class="w-full lg:w-[250px] flex flex-col items-center lg:items-start text-center lg:text-left">
                <h1 class="text-black font-bold text-2xl mb-4">Categories</h1>
-               <a class="btn bg-[#15803D] mb-4 border-none w-full text-white">All Tree</a>
+               <a id="all-btn" class="btn bg-[#15803D] mb-4 border-none w-full text-white">All Tree</a>
                 <div class="flex flex-col gap-2 w-full">
                   <button id="mango-btn-tree" class="btn btn-link text-black no-underline text-left w-full">Mango Tree</button>
                   <button id="tree-btn" class="btn btn-link text-black no-underline text-left w-full">Flowering Trees</button>
-                  <button id="tree-btn-tameto" class="btn btn-link text-black no-underline text-left w-full">Shade Trees</button>
-                  <button class="btn btn-link text-black no-underline text-left w-full">Medicinal Trees</button>
-                  <button class="btn btn-link text-black no-underline text-left w-full">Timber Trees</button>
-                  <button class="btn btn-link text-black no-underline text-left w-full">Evergreen Trees</button>
-                  <button class="btn btn-link text-black no-underline text-left w-full">Ornamental Plants</button>
-                  <button class="btn btn-link text-black no-underline text-left w-full">Bamboo</button>
-                  <button class="btn btn-link text-black no-underline text-left w-full">Climbers</button>
-                  <button class="btn btn-link text-black no-underline text-left w-full">Aquatic Plants</button>
+                  <button id="flower-btn" class="btn btn-link text-black no-underline text-left w-full">Shade Trees</button>
                </div>
             </div>
+            <div id="tree-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white p-6 rounded w-96 relative">
+    <button id="modal-close" class="absolute top-2 right-2 text-black">✖</button>
+    <h2 id="modal-title" class="text-xl font-bold mb-2 text-[#15803D]"></h2>
+    <p id="modal-description" class="text-[#333]"></p>
+  </div>
+</div>
+
 
          <!--  Card  Section -->
-         <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+    <div class="cardn flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center ">
             <!-- Repeat this card as needed -->
-
+             <!-- mango card -->
               <!-- card 1 -->
-            <div id="card-mango-tree" style="display: none;">
-               <div  class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div id="mango-card-btn"  class="card hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/mango tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -93,10 +95,11 @@
                            <div class="card-actions justify-end mt-auto pt-2">
                                <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
                            </div>
-                    </div>
+                       </div>
                </div>
+               
                <!-- card 2 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="card hidden bg-base-100 shadow-sm pt-2 w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/mango tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -113,7 +116,7 @@
                     </div>
                </div>
                <!-- card 3 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="card hidden bg-base-100 shadow-sm pt-2 w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/mango tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -130,7 +133,7 @@
                     </div>
                </div>
                <!-- card 4 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="card hidden bg-base-100 shadow-sm pt-2 w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/mango tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -147,7 +150,7 @@
                     </div>
                </div>
                <!-- card 5 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="card hidden bg-base-100 pt-2 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/mango tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -164,7 +167,7 @@
                     </div>
                </div>
                <!-- card 6 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="card hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/mango tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -179,119 +182,11 @@
                                <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
                            </div>
                     </div>
-               </div>
-            </div>
+               </div> 
 
+               <!-- tree card -->
 
-              <!-- card 1 -->
-            <div id="card-tree" style="display: none;">
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
-                 <figure>
-                   <img src="./assets/flower tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
-                 </figure>
-                   <div class="pt-5 px-3 flex flex-col flex-grow">
-                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
-                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                       <div class="flex justify-between pt-2">
-                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
-                         <span class="text-black text-sm">$200</span>
-                       </div>
-                           <div class="card-actions justify-end mt-auto pt-2">
-                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
-                           </div>
-                    </div>
-               </div>
-               <!-- card 2 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
-                 <figure>
-                   <img src="./assets/flower1.jpg" class="w-full h-auto rounded-t-lg" alt="">
-                 </figure>
-                   <div class="pt-5 px-3 flex flex-col flex-grow">
-                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
-                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                       <div class="flex justify-between pt-2">
-                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
-                         <span class="text-black text-sm">$200</span>
-                       </div>
-                           <div class="card-actions justify-end mt-auto pt-2">
-                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
-                           </div>
-                    </div>
-               </div>
-               <!-- card 3 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
-                 <figure>
-                   <img src="./assets/flower tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
-                 </figure>
-                   <div class="pt-5 px-3 flex flex-col flex-grow">
-                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
-                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                       <div class="flex justify-between pt-2">
-                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
-                         <span class="text-black text-sm">$200</span>
-                       </div>
-                           <div class="card-actions justify-end mt-auto pt-2">
-                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
-                           </div>
-                    </div>
-               </div>
-               <!-- card 4 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
-                 <figure>
-                   <img src="./assets/flower1.jpg" class="w-full h-auto rounded-t-lg" alt="">
-                 </figure>
-                   <div class="pt-5 px-3 flex flex-col flex-grow">
-                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
-                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                       <div class="flex justify-between pt-2">
-                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
-                         <span class="text-black text-sm">$200</span>
-                       </div>
-                           <div class="card-actions justify-end mt-auto pt-2">
-                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
-                           </div>
-                    </div>
-               </div>
-               <!-- card 5 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
-                 <figure>
-                   <img src="./assets/flower tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
-                 </figure>
-                   <div class="pt-5 px-3 flex flex-col flex-grow">
-                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
-                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                       <div class="flex justify-between pt-2">
-                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
-                         <span class="text-black text-sm">$200</span>
-                       </div>
-                           <div class="card-actions justify-end mt-auto pt-2">
-                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
-                           </div>
-                    </div>
-               </div>
-               <!-- card 6 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
-                 <figure>
-                   <img src="./assets/flower1.jpg" class="w-full h-auto rounded-t-lg" alt="">
-                 </figure>
-                   <div class="pt-5 px-3 flex flex-col flex-grow">
-                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
-                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
-                       <div class="flex justify-between pt-2">
-                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
-                         <span class="text-black text-sm">$200</span>
-                       </div>
-                           <div class="card-actions justify-end mt-auto pt-2">
-                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
-                           </div>
-                    </div>
-               </div>
-            </div>
-
-
-              <!-- card 1 -->
-              <div id="card-tometo-tree" style="display: none;">
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+                 <div  class="cards hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -305,10 +200,10 @@
                            <div class="card-actions justify-end mt-auto pt-2">
                                <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
                            </div>
-                    </div>
+                       </div>
                </div>
                <!-- card 2 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="cards hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -325,7 +220,7 @@
                     </div>
                </div>
                <!-- card 3 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="cards hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -342,7 +237,7 @@
                     </div>
                </div>
                <!-- card 4 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="cards hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -359,7 +254,7 @@
                     </div>
                </div>
                <!-- card 5 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="cards hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -376,7 +271,7 @@
                     </div>
                </div>
                <!-- card 6 -->
-               <div class="card bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+               <div class="cards hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
                  <figure>
                    <img src="./assets/tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
                  </figure>
@@ -391,16 +286,118 @@
                                <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
                            </div>
                     </div>
+               </div> 
+               <!-- flower tree -->
+                 <div  class="carded hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+                 <figure>
+                   <img src="./assets/flower tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
+                 </figure>
+                   <div class="pt-5 px-3 flex flex-col flex-grow">
+                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
+                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
+                       <div class="flex justify-between pt-2">
+                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
+                         <span class="text-black text-sm">$200</span>
+                       </div>
+                           <div class="card-actions justify-end mt-auto pt-2">
+                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
+                           </div>
+                       </div>
                </div>
-              </div>
-         </div>
-        
-
+               <!-- card 2 -->
+               <div class="carded hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+                 <figure>
+                   <img src="./assets/flower tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
+                 </figure>
+                   <div class="pt-5 px-3 flex flex-col flex-grow">
+                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
+                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
+                       <div class="flex justify-between pt-2">
+                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
+                         <span class="text-black text-sm">$200</span>
+                       </div>
+                           <div class="card-actions justify-end mt-auto pt-2">
+                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
+                           </div>
+                    </div>
+               </div>
+               <!-- card 3 -->
+               <div class="carded hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+                 <figure>
+                   <img src="./assets/flower tree.jpg" class="w-full h-auto rounded-t-lg" alt="">
+                 </figure>
+                   <div class="pt-5 px-3 flex flex-col flex-grow">
+                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
+                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
+                       <div class="flex justify-between pt-2">
+                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
+                         <span class="text-black text-sm">$200</span>
+                       </div>
+                           <div class="card-actions justify-end mt-auto pt-2">
+                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
+                           </div>
+                    </div>
+               </div>
+               <!-- card 4 -->
+               <div class="carded hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+                 <figure>
+                   <img src="./assets/flower1.jpg" class="w-full h-auto rounded-t-lg" alt="">
+                 </figure>
+                   <div class="pt-5 px-3 flex flex-col flex-grow">
+                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
+                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
+                       <div class="flex justify-between pt-2">
+                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
+                         <span class="text-black text-sm">$200</span>
+                       </div>
+                           <div class="card-actions justify-end mt-auto pt-2">
+                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
+                           </div>
+                    </div>
+               </div>
+               <!-- card 5 -->
+               <div class="carded hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+                 <figure>
+                   <img src="./assets/flower1.jpg" class="w-full h-auto rounded-t-lg" alt="">
+                 </figure>
+                   <div class="pt-5 px-3 flex flex-col flex-grow">
+                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
+                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
+                       <div class="flex justify-between pt-2">
+                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
+                         <span class="text-black text-sm">$200</span>
+                       </div>
+                           <div class="card-actions justify-end mt-auto pt-2">
+                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
+                           </div>
+                    </div>
+               </div>
+               <!-- card 6 -->
+               <div class="carded hidden pt-2 bg-base-100 shadow-sm w-[250px] h-[350px] flex flex-col">
+                 <figure>
+                   <img src="./assets/flower1.jpg" class="w-full h-auto rounded-t-lg" alt="">
+                 </figure>
+                   <div class="pt-5 px-3 flex flex-col flex-grow">
+                     <h2 class="text-xl font-semibold text-black">Mango Tree</h2>
+                     <p class="text-[#948F8F] text-sm">A fast-growing tropical tree that produces delicious, juicy mangoes during summer.</p>
+                       <div class="flex justify-between pt-2">
+                         <a class="text-[#15803D] bg-[#DCFCE7] text-sm" href="#">Fruit Tree</a>
+                         <span class="text-black text-sm">$200</span>
+                       </div>
+                           <div class="card-actions justify-end mt-auto pt-2">
+                               <button class="btn btn-primary bg-[#15803D] border-none text-white px-20">Add to Cart</button>
+                           </div>
+                    </div>
+               </div> 
+    </div>
+ 
              <!-- Card right  Section -->
             <div class="w-full lg:w-[206px] flex justify-center lg:justify-start pt-4">
                 <h1 class="text-black font-semibold text-3xl text-center lg:text-left">Your Cart</h1>
             </div>
+            
        </div>
+       
 </div>
 
      <!-- About section start -->
@@ -453,6 +450,7 @@
            <a class="inline-block bg-[#FACC15] text-[#15803D] px-25 py-2 rounded">Donate Now</a>
       </div>
    </div>
+   
      
         <!--  fotter section -->
           <footer>
